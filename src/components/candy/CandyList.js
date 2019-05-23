@@ -11,7 +11,8 @@ export default class CandyList extends Component {
                     {
                         this.props.candies.map((item) => {
                             console.log(item)
-                            return <CandyItem key={item.id} candy={item} />
+                            return <CandyItem key={item.id} candy={item} 
+                                        deleteOneCandy={this.props.deleteOneCandy} />
                         })
                     }
 
