@@ -2,15 +2,15 @@
    "storesFromAPI": [
         {
             "id": 1,
-            "name": "Walmart",
+            "name": "Walmart"
         },
         {
             "id": 2,
-            "name": "Dollar General",
+            "name": "Dollar General"
         },
         {
             "id": 3,
-            "name": "Cracker Barrel",
+            "name": "Cracker Barrel"
         }
     ],
     "employeesFromAPI": [
