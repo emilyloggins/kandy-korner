@@ -5,7 +5,7 @@ import CandyList from './components/candy/CandyList'
 import CandyManager from './components/candy/CandyManager';
 
 export default class KandyKorner extends Component {
-   
+
     state = {
         stores: [],
         employees: [],
@@ -16,37 +16,35 @@ export default class KandyKorner extends Component {
     deleteOneCandy(id) {
         const newState = {};
         CandyManager.deleteOne(id)
-        .then(CandyManager.getAll)
-        .then(candy => {
-            console.log("candies:", candy);
-            newState.candies = candy})
-        .then(() => {
-            this.setState(newState)
-        })
+            .then(CandyManager.getAll)
+            .then(candy => {
+                console.log("candies:", candy);
+                newState.candies = candy
+            })
+            .then(() => {
+                this.setState(newState)
+            })
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         console.log("APPVIEWS componentDidMount");
         const newState = {};
         CandyManager.getAll()
             .then(candy => {
                 console.log("candies:", candy);
-                newState.candies = candy})
+                newState.candies = candy
+            })
             .then(() => {
                 this.setState(newState)
             })
     }
 
     render() {
-        return(
-            <div>
-                <StoreList stores={this.state.stores} />
-                <EmployeeList employees={this.state.employees} />
-                <CandyList candies={this.state.candies}
-                            types={this.state.candyTypes}
-                            deleteOneCandy={this.deleteOneCandy} />
-            </div>
+        return (
+            <h1>
+                🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩🎩
+            </h1>
         )
     }
 }
