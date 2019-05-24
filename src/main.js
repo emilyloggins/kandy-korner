@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Component } from "react"
 import ReactDOM from 'react-dom';
 import './index.css';
 import KandyKorner from './KandyKorner';
-import NavBar from "./nav/NavBar"
-import "bootstrap/dist/css/bootstrap.min.css"
+import NavBar from "./components/NavBar"
 
 
 class Main extends Component {

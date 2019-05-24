@@ -4,6 +4,8 @@ import EmployeeList from './components/employee/EmployeeList'
 import CandyList from './components/candy/CandyList'
 import CandyManager from './components/candy/CandyManager';
 import CandyTypeManager from './components/candy/CandyTypeManager'
+import { Route } from "react-router-dom"
+import CandyForm from './components/candy/CandyForm'
 
 export default class KandyKorner extends Component {
    
@@ -46,6 +48,16 @@ export default class KandyKorner extends Component {
             })
     }
 
+    addAnimal = (candy) => {
+        CandyManager.post(candy)
+        .then(() => CandyManager.getAll())
+        .then(candies =>
+        this.setState({
+            candies: candies
+        })
+        );
+    }
+
     render() {
         return(
             <React.Fragment>
@@ -60,8 +72,8 @@ export default class KandyKorner extends Component {
                         }} />
                 <Route path="/new" render={(props) => {
                 return <CandyForm {...props}
-                addAnimal={this.addCandy} />
-}} />
+                addCandy={this.addCandy} />
+                }} />
             </React.Fragment>
         )
     }

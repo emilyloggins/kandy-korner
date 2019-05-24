@@ -1,0 +1,13 @@
+.candy-img {
+    width: 15%;
+    height: auto;
+}
+
+.card {
+    width: 18rem;
+    display: flex;
+}
+
+.card-body {
+    justify-items: center;
+}

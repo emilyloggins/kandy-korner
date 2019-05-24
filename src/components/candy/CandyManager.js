@@ -12,5 +12,14 @@ export default {
             method: "DELETE"
         })
         .then(e => e.json())
-    }
+    },
+    post(newCandy) {
+        return fetch(`${remoteURL}/candiesFromAPI`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(newCandy)
+        }).then(data => data.json())
+      }
 }
