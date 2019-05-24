@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import TypeItem from './TypeItem'
+import img from "./candy.png"
+import "./candy.css"
+import "bootstrap/dist/css/bootstrap.min.css"
+
 
 export default class CandyItem extends Component {
 
@@ -10,11 +14,13 @@ export default class CandyItem extends Component {
 
     render() {
         return(
-            <article>
-                <p>{this.props.candy.name}</p>
-                <p className="muted">{this.props.type.name}</p>
-                <button onClick={this.handleClick}>Delete</button>
-            </article>
+            <div className="card">
+                <div class="card-body">
+                    <img className="candy-img" src={img} alt="candy" />
+                    <h5 className="card-title">{this.props.candy.name}</h5>
+                    <button type="button" className="btn btn-info" onClick={this.handleClick}>Delete</button>
+                </div>
+            </div>
         )
     }
 }
