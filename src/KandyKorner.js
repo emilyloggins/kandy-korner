@@ -3,6 +3,7 @@ import StoreList from './components/store/StoreList'
 import EmployeeList from './components/employee/EmployeeList'
 import CandyList from './components/candy/CandyList'
 import CandyManager from './components/candy/CandyManager';
+import CandyTypeManager from './components/candy/CandyTypeManager'
 
 export default class KandyKorner extends Component {
    
@@ -13,12 +14,12 @@ export default class KandyKorner extends Component {
         candies: []
     }
 
-    deleteOneCandy(id) {
+    deleteOneCandy = (id) => {
         const newState = {};
         CandyManager.deleteOne(id)
         .then(CandyManager.getAll)
         .then(candy => {
-            console.log("candies:", candy);
+            console.log("candies:", candy, this);
             newState.candies = candy})
         .then(() => {
             this.setState(newState)
@@ -36,17 +37,32 @@ export default class KandyKorner extends Component {
             .then(() => {
                 this.setState(newState)
             })
+            CandyTypeManager.getAll()
+            .then(type => {
+                console.log("types:", type);
+                newState.candyTypes = type})
+            .then(() => {
+                this.setState(newState)
+            })
     }
 
     render() {
         return(
-            <div>
+            <React.Fragment>
                 <StoreList stores={this.state.stores} />
+               
                 <EmployeeList employees={this.state.employees} />
-                <CandyList candies={this.state.candies}
+              
+                <Route exact path="/" render={(props) => {
+                return <CandyList candies={this.state.candies}
                             types={this.state.candyTypes}
                             deleteOneCandy={this.deleteOneCandy} />
-            </div>
+                        }} />
+                <Route path="/new" render={(props) => {
+                return <CandyForm {...props}
+                addAnimal={this.addCandy} />
+}} />
+            </React.Fragment>
         )
     }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TypeItem from './TypeItem'
 
 export default class CandyItem extends Component {
 
@@ -11,6 +12,7 @@ export default class CandyItem extends Component {
         return(
             <article>
                 <p>{this.props.candy.name}</p>
+                <p className="muted">{this.props.type.name}</p>
                 <button onClick={this.handleClick}>Delete</button>
             </article>
         )
